@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aderi Agronegócios | Soluções para o Campo</title>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. RESET GLOBAL PERFEITO (Sem esmagar)
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+
+           /* =========================================
+           2. HERO SECTION
+           ========================================= */
+        .hero-section { 
+            /* Baixei o insulfilm de 0.7 para 0.5 para clarear um pouco a foto! */
+            background-image: linear-gradient(rgba(10, 30, 15, 0.5), rgba(10, 30, 15, 0.5)), url('hero/aderiFundo.jpeg'); 
+            background-size: 105%; 
+            background-position: center; 
+            height: 100vh; 
+            width: 100%; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .hero-layout { display: flex; justify-content: space-between; align-items: center; padding: 0 8%; height: 100%; }
+
+        .cabecalho-principal { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; }
+        .logo-pequena img { max-width: 140px; height: auto; }
+        .menu-navegacao ul { display: flex; gap: 30px; list-style: none; }
+        .menu-navegacao a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.3s ease; }
+        .menu-navegacao a:hover { color: #E67E22; }
+
+        /* Aumentamos a caçamba de 45% para 55% para caber a frase inteira */
+        .hero-conteudo { width: 55%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: #ffffff; }
+        
+        .badge-tecnologia { display: inline-block; background-color: rgba(255, 255, 255, 0.1); color: #E67E22; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; border: 1px solid #E67E22; }
+        
+        /* AQUI ESTÁ A MUDANÇA 1: Diminuímos a margem embaixo do título para 10px */
+        .hero-conteudo h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
+        
+        /* Aplicamos a Playfair Display em itálico: pura elegância e contraste! */
+        .slogan-aderi { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 26px; 
+            font-weight: 600; 
+            font-style: italic; 
+            color: #ffffff; 
+            margin-top: 45px; 
+            letter-spacing: 1px; 
+        }
+        .destaque-laranja { color: #E67E22; }
+        /* Aumentamos de 40px para 100px para empurrar o final da foto pra baixo kkk */
+        .hero-conteudo p { font-size: 18px; margin-bottom: 100px; max-width: 600px; line-height: 1.5; }
+        
+        /* 1. A caçamba travada no tamanho certo (40% da tela) */
+        .hero-logo-grande { width: 40%; text-align: right; display: flex; justify-content: center; align-items: center; }
+        
+        /* 2. A logo do tamanho normal, com a trava de segurança, puxada 40px para a esquerda */
+        .hero-logo-grande img { width: 100%; max-width: 800px; height: auto; transform: translateX(-40px); }
+        
+        .hero-botoes { display: flex; gap: 20px; }
+        .btn-primario { display: inline-block; background-color: #E67E22; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: 2px solid #E67E22; }
+        .btn-primario:hover { background-color: #D35400; border-color: #D35400; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3); }
+        .btn-secundario { display: inline-block; background-color: transparent; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid #ffffff; transition: all 0.3s ease; }
+        .btn-secundario:hover { background-color: #ffffff; color: #1a1a1a; transform: translateY(-3px); }
+    
+        /* =========================================
+           3. SEÇÕES MEIO (Sobre, Pilares, Serviços, Produtos)
+           ========================================= */
+        .secao-sobre, .secao-servicos, .secao-produtos { padding: 100px 8%; background-color: #ffffff; overflow-x: hidden; }
+        .secao-pilares { padding: 100px 8%; background-color: #F9FAFB; overflow-x: hidden; }
+        
+        .container-sobre { display: flex; justify-content: space-between; align-items: center; gap: 60px; }
+        .sobre-imagem-wrapper { width: 45%; position: relative; }
+        
+        /* Fundo escuro premium atrás da foto */
+        .sobre-imagem-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background-color: #0A1E0F; border-radius: 24px; z-index: 0; }
+        
+        /* A FOTO: Começa em P&B elegante e com a transição armada */
+        .foto-principal { width: 100%; height: 420px; object-fit: cover; object-position: center 20%; border-radius: 24px; position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); filter: grayscale(100%) contrast(115%); transition: all 0.5s ease; }
+        
+        /* A MÁGICA: Ganha cor e dá o zoom quando o mouse passa! */
+        .foto-principal:hover { filter: grayscale(0%) contrast(100%); transform: scale(1.03); }
+        
+        /* O SELO: Ganhou a borda laranja e o ícone na cor da marca */
+        .badge-experiencia { position: absolute; bottom: -30px; right: -30px; background-color: #ffffff; padding: 20px 30px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 15px; z-index: 2; border: 2px solid #E67E22; }
+        .icone-badge { font-size: 44px; color: #E67E22; }
+        
+        .badge-texto { display: flex; flex-direction: column; }
+        .badge-numero { font-size: 28px; font-weight: 800; color: #1F2937; line-height: 1; }
+        .badge-legenda { font-size: 14px; color: #6B7280; font-weight: 500; margin-top: 4px; }
+        .sobre-conteudo { width: 55%; }
+        .subtitulo-secao { color: #059669; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2 { font-size: 42px; font-weight: 800; color: #1F2937; line-height: 1.2; margin-bottom: 25px; }
+        .sobre-conteudo p, .descricao-secao { font-size: 16px; color: #4B5563; line-height: 1.7; margin-bottom: 20px; }
+        .sobre-destaques { display: flex; gap: 30px; margin-top: 40px; }
+        .destaque-item { display: flex; align-items: flex-start; gap: 15px; width: 50%; }
+        .icone-destaque { font-size: 32px; color: #059669; background-color: #ECFDF5; padding: 12px; border-radius: 12px; }
+        .destaque-texto h4 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .destaque-texto p { font-size: 14px; color: #6B7280; line-height: 1.5; margin-bottom: 0; }
+        .cabecalho-secao-centro { text-align: center; margin-bottom: 60px; }
+        .grid-pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .grid-servicos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .card-pilar, .card-servico { background-color: #ffffff; padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); text-align: center; transition: all 0.4s ease; border: 2px solid transparent; }
+        .card-servico { text-align: left; border-radius: 20px; border: 1px solid #F3F4F6; }
+        .card-pilar:hover, .card-servico:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(5, 150, 105, 0.1); border-color: #059669; }
+        .icone-wrapper { width: 80px; height: 80px; background-color: #FFF7ED; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 30px auto; }
+        .icone-wrapper i { font-size: 40px; color: #E67E22; }
+        .icone-servico-wrapper { width: 60px; height: 60px; background-color: #ECFDF5; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
+        .icone-servico-wrapper i { font-size: 32px; color: #059669; }
+        .card-pilar h3, .card-servico h3 { font-size: 20px; font-weight: 700; color: #1F2937; margin-bottom: 15px; }
+        .card-pilar p, .card-servico p { font-size: 15px; color: #6B7280; line-height: 1.6; }
+        .lista-valores { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+        .lista-valores li { font-size: 15px; color: #4B5563; display: flex; align-items: center; gap: 10px; }
+        .lista-valores li i { color: #059669; font-size: 20px; }
+
+        .cabecalho-produtos { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
+        .link-catalogo { color: #059669; font-weight: 700; text-decoration: none; font-size: 16px; display: flex; align-items: center; gap: 6px; transition: color 0.3s ease; }
+        .link-catalogo:hover { color: #E67E22; }
+        .grid-produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card-produto { height: 420px; border-radius: 20px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .card-produto:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .conteudo-produto h3 { color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 15px; }
+        .tags-produto { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tags-produto span { background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); color: #ffffff; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.3); }
+
+        /* =========================================
+           4. DIFERENCIAIS (Cápsulas Estilo Dinac)
+           ========================================= */
+        .secao-diferenciais { padding: 100px 8%; background-color: #0A1E0F; }
+        .secao-diferenciais .subtitulo-secao { color: #F59E0B; }
+        .secao-diferenciais h2 { color: #ffffff; }
+
+        .grid-ovais { display: flex; justify-content: center; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
+
+        .card-oval { 
+            width: 340px; 
+            height: 500px; 
+            border-radius: 170px; 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; 
+            padding: 50px 30px; 
+            text-align: center; 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+            transition: transform 0.5s ease, box-shadow 0.5s ease; 
+        }
+        .card-oval:hover { transform: translateY(-15px); box-shadow: 0 30px 50px rgba(230, 126, 34, 0.3); }
+        .conteudo-oval h3 { color: #ffffff; font-size: 26px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .conteudo-oval p { color: #E5E7EB; font-size: 15px; line-height: 1.6; }
+/* =========================================
+           5. RODAPÉ (Footer Premium)
+           ========================================= */
+        .rodape-principal { background-color: #0A1E0F; color: #ffffff; padding: 80px 8% 40px 8%; font-family: 'Segoe UI', sans-serif; }
+        
+        .container-rodape { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 60px; margin-bottom: 60px; }
+        
+        .coluna-rodape h3 { color: #E67E22; font-size: 18px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .logo-rodape { font-family: 'Comfortaa', cursive; font-weight: 700; font-size: 24px; margin-bottom: 20px; display: block; }
+        .texto-sobre-rodape { color: #9CA3AF; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
+        
+        .links-rodape { list-style: none; }
+        .links-rodape li { margin-bottom: 15px; }
+        .links-rodape a { color: #D1D5DB; text-decoration: none; transition: color 0.3s ease; font-size: 15px; }
+        .links-rodape a:hover { color: #E67E22; padding-left: 5px; }
+        
+        .info-contato { display: flex; flex-direction: column; gap: 15px; }
+        .item-contato { display: flex; align-items: flex-start; gap: 12px; color: #D1D5DB; font-size: 15px; }
+        .item-contato i { color: #E67E22; font-size: 20px; margin-top: 3px; }
+
+        /* Divisória e Copyright */
+        .base-rodape { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; color: #6B7280; font-size: 14px; }
+        .redes-sociais { display: flex; gap: 20px; }
+        .redes-sociais a { color: #ffffff; font-size: 24px; transition: transform 0.3s ease, color 0.3s ease; }
+        .redes-sociais a:hover { color: #E67E22; transform: translateY(-5px); }
+
+        /* Botão Flutuante do Zap */
+        .whatsapp-fixo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-fixo:hover {
+            transform: scale(1.1) rotate(15deg);
+            background-color: #128c7e;
+        }
+
+        /* Animação de pulo que o JS vai disparar */
+        @keyframes balancar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .animar-zap {
+            animation: balancar 0.5s ease infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho-principal">
+        <div class="logo-pequena" style="display: flex; align-items: center;">
+            <span style="color: #ffffff; font-family: 'Comfortaa', cursive; font-weight: 700; font-size: 26px; letter-spacing: -1px;">
+                aderi <span style="color: #E67E22;">agronegócios</span>
+            </span>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <nav class="menu-navegacao">
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#rodape" class="btn-primario">Fale Conosco</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-layout">
+            <div class="hero-conteudo">
+                <span class="badge-tecnologia">Tecnologia e Inovação no Campo</span>
+                
+                <h1>Especialistas em <br> <span class="destaque-laranja">soluções</span> para o agronegócio</h1>
+                
+                <p>Elevando a produtividade da sua lavoura com tecnologia de ponta, consultoria especializada e os melhores produtos do mercado agrícola.</p>
+                
+                <div class="hero-botoes">
+                    <a href="#servicos" class="btn-primario">Conheça nossos serviços &gt;</a>
+                    <a href="#sobre" class="btn-secundario">Nossa História</a>
+            </div>
+                
+                <div class="slogan-aderi">Venha <span class="destaque-laranja">aderir</span> essa forma de fazer negócio.</div>
+            </div>
+            
+            <div class="hero-logo-grande">
+                <img src="logoAderi/logo-aderi-4k.png" alt="Logotipo Aderi Agronegócios">
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="secao-sobre">
+        <div class="container-sobre">
+            <div class="sobre-imagem-wrapper">
+                <img src="sobre/fotoFamilia.png" alt="Equipe e Família Aderi Agro" class="foto-principal">
+                <div class="badge-experiencia">
+                    <i class="ph ph-medal icone-badge"></i>
+                    <div class="badge-texto">
+                        <span class="badge-numero">10+</span>
+                        <span class="badge-legenda">Anos de Tradição</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sobre-conteudo">
+                <span class="subtitulo-secao">SOBRE A ADERI AGRO</span>
+                <h2>Tradição de família aliada à inovação no campo</h2>
+                <p>A Aderi Agro nasceu do suor e da dedicação de uma família apaixonada pela terra. Com mais de duas décadas de experiência no agronegócio, construímos uma base sólida de confiança e parceria com produtores rurais de toda a região.</p>
+                <p>Nosso compromisso vai além de fornecer insumos. Entregamos soluções completas que integram o conhecimento prático de gerações às mais modernas tecnologias agrícolas, garantindo sustentabilidade e máxima rentabilidade para a sua lavoura.</p>
+                <div class="sobre-destaques">
+                    <div class="destaque-item">
+                        <i class="ph ph-trend-up icone-destaque"></i>
+                        <div class="destaque-texto">
+                            <h4>Foco em Resultados</h4>
+                            <p>Estratégias personalizadas para aumentar sua produtividade.</p>
+                        </div>
+                    </div>
+                    <div class="destaque-item">
+                        <i class="ph ph-handshake icone-destaque"></i>
+                        <div class="destaque-texto">
+                            <h4>Parceria Duradoura</h4>
+                            <p>Relacionamento baseado na transparência e confiança mútua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-pilares">
+        <div class="container-pilares">
+            <div class="cabecalho-secao-centro">
+                <span class="subtitulo-secao">NOSSOS PILARES</span>
+                <h2>O que guia a Aderi Agro</h2>
+            </div>
+            <div class="grid-pilares">
+                <div class="card-pilar">
+                    <div class="icone-wrapper"><i class="ph ph-target"></i></div>
+                    <h3>Nossa Missão</h3>
+                    <p>Ser referência em nutrição vegetal, comprometida com o sucesso do produtor rural. Entregamos soluções com respeito econômico, social e ambiental, agregando valor real ao negócio dos nossos clientes.</p>
+                </div>
+                <div class="card-pilar">
+                    <div class="icone-wrapper"><i class="ph ph-binoculars"></i></div>
+                    <h3>Nossa Visão</h3>
+                    <p>A busca incansável pela qualidade e inovação é o que nos move. Queremos ser a força que impulsiona o homem do campo a produzir mais e melhor a cada safra, superando novos desafios.</p>
+                </div>
+                <div class="card-pilar">
+                    <div class="icone-wrapper"><i class="ph ph-diamond"></i></div>
+                    <h3>Nossos Valores</h3>
+                    <ul class="lista-valores">
+                        <li><i class="ph ph-check-circle"></i> Responsabilidade Ambiental</li>
+                        <li><i class="ph ph-check-circle"></i> Inovação Constante</li>
+                        <li><i class="ph ph-check-circle"></i> Comprometimento e Ética</li>
+                        <li><i class="ph ph-check-circle"></i> Credibilidade no Mercado</li>
+                        <li><i class="ph ph-check-circle"></i> Valorização Humana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="secao-servicos">
+        <div class="container-servicos">
+            <div class="cabecalho-secao-centro">
+                <span class="subtitulo-secao">NOSSOS SERVIÇOS</span>
+                <h2>Soluções sob medida para o seu cultivo</h2>
+                <p class="descricao-secao">Oferecemos suporte técnico especializado e tecnologias inovadoras para acompanhar cada etapa da sua produção, do plantio à colheita.</p>
+            </div>
+            <div class="grid-servicos">
+                <div class="card-servico">
+                    <div class="icone-servico-wrapper"><i class="ph ph-plant"></i></div>
+                    <h3>Consultoria Agronômica</h3>
+                    <p>Acompanhamento profissional contínuo para planejamento, plantio e manejo adequado da sua cultura.</p>
+                </div>
+                <div class="card-servico">
+                    <div class="icone-servico-wrapper"><i class="ph ph-bug"></i></div>
+                    <h3>Monitoramento de Pragas</h3>
+                    <p>Identificação precoce e controle eficiente de pragas e doenças para proteger o seu investimento.</p>
+                </div>
+                <div class="card-servico">
+                    <div class="icone-servico-wrapper"><i class="ph ph-clipboard-text"></i></div>
+                    <h3>Recomendação Técnica</h3>
+                    <p>Análise de solo e recomendação precisa de fertilizantes e corretivos para máxima eficiência.</p>
+                </div>
+                <div class="card-servico">
+                    <div class="icone-servico-wrapper"><i class="ph ph-cpu"></i></div>
+                    <h3>Tecnologia Agrícola</h3>
+                    <p>Implementação de ferramentas de agricultura de precisão para otimizar recursos e aumentar a produtividade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="secao-produtos">
+        <div class="container-padrao">
+            <div class="cabecalho-produtos">
+                <div class="titulos-esq">
+                    <span class="subtitulo-secao">NOSSOS PRODUTOS</span>
+                    <h2>O melhor para a sua lavoura</h2>
+                </div>
+                <a href="#catalogo" class="link-catalogo">Ver catálogo completo <i class="ph ph-caret-right"></i></a>
+            </div>
+            <div class="grid-produtos">
+                <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/sementes.jpg');">
+                    <div class="conteudo-produto">
+                        <h3>Sementes de Alta Genética</h3>
+                        <div class="tags-produto">
+                            <span>Soja</span><span>Milho</span><span>Trigo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/defensivo.jpg');">
+                    <div class="conteudo-produto">
+                        <h3>Defensivos Agrícolas</h3>
+                        <div class="tags-produto">
+                            <span>Herbicidas</span><span>Fungicidas</span><span>Inseticidas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/foliar.jpg');">
+                    <div class="conteudo-produto">
+                        <h3>Nutrição e Biológicos</h3>
+                        <div class="tags-produto">
+                            <span>Fertilizantes</span><span>Foliares</span><span>Bioinsumos</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </section>
+
+    <section id="diferenciais" class="secao-diferenciais">
+        <div class="container-padrao">
+            <div class="cabecalho-secao-centro">
+                <span class="subtitulo-secao">POR QUE ESCOLHER A ADERI</span>
+                <h2>Nossos Diferenciais</h2>
+            </div>
+            <div class="grid-ovais">
+                
+                <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/agronomo.png');">
+                    <div class="conteudo-oval">
+                        <h3>Assistência</h3>
+                        <p>Lado a lado com o produtor rural, do planejamento da safra até o momento da colheita.</p>
+                    </div>
+                </div>
+
+                <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/transpsorte.png');">
+                    <div class="conteudo-oval">
+                        <h3>Logística Ágil</h3>
+                        <p>Agilidade e compromisso para garantir que o seu insumo chegue no tempo certo, sem atrasos.</p>
+                    </div>
+                </div>
+
+                <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/qualidade.png');">
+                    <div class="conteudo-oval">
+                        <h3>Alta Qualidade</h3>
+                        <p>Trabalhamos com o que há de melhor no mercado em nutrição, biológicos e defensivos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="rodape" class="rodape-principal">
+        <div class="container-rodape">
+            <div class="coluna-rodape">
+                <div class="logo-rodape">
+                    aderi <span style="color: #E67E22;">agronegócios</span>
+                </div>
+                <p class="texto-sobre-rodape">
+                    Comprometidos com o sucesso do homem do campo, entregando tecnologia de ponta e parcerias duradouras para a sua lavoura.
+                </p>
+                <div class="redes-sociais">
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="coluna-rodape">
+                <h3>Navegação</h3>
+                <ul class="links-rodape">
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Nossos Serviços</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-rodape">
+                <h3>Soluções</h3>
+                <ul class="links-rodape">
+                    <li><a href="#">Nutrição Vegetal</a></li>
+                    <li><a href="#">Defensivos Agrícolas</a></li>
+                    <li><a href="#">Sementes de Alta Genética</a></li>
+                    <li><a href="#">Consultoria Técnica</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-rodape">
+                <h3>Fale Conosco</h3>
+                <div class="info-contato">
+                    <div class="item-contato">
+                        <i class="ph ph-map-pin"></i>
+                        <span>Piumhi - MG<br>Setor Industrial / Zona Rural</span>
+                    </div>
+                    <div class="item-contato">
+                        <i class="ph ph-phone"></i>
+                        <span>(37) 99999-9999</span>
+                    </div>
+                    <div class="item-contato">
+                        <i class="ph ph-envelope"></i>
+                        <span>contato@aderiagro.com.br</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="base-rodape">
+            <p>&copy; 2026 Aderi Agronegócios. Todos os direitos reservados.</p>
+            <p>Desenvolvido por João Victor - Web Design Premium</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5537999999999?text=Olá! Gostaria de saber mais sobre as soluções da Aderi Agro." 
+       class="whatsapp-fixo" id="btn-zap" target="_blank">
+        <i class="ph ph-whatsapp-logo"></i>
+    </a>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+    // Configuração do "Pai tá on" no JavaScript kkk
+    const sr = ScrollReveal({
+        origin: 'top',      // De onde a animação vem
+        distance: '50px',   // Qual a distância do deslocamento
+        duration: 2000,     // Quanto tempo dura a animação (2 segundos)
+        delay: 200,         // Espera um pouquinho antes de começar
+        reset: false        // Se a animação deve repetir toda vez que subir/descer (recomendo false)
+    });
+
+    // Agora dizemos quem vai aparecer!
+    sr.reveal('.hero-conteudo', { origin: 'left' }); // Texto do Hero vem da esquerda
+    sr.reveal('.hero-logo-grande', { origin: 'right', delay: 400 }); // Logo vem da direita
+    sr.reveal('.card-pilar', { interval: 200 }); // Cards de Pilares aparecem um depois do outro
+    sr.reveal('.sobre-imagem-wrapper', { origin: 'bottom' }); // Foto da família sobe
+    sr.reveal('.sobre-conteudo', { origin: 'bottom', delay: 400 }); // Texto do sobre sobe depois
+    sr.reveal('.card-oval', { interval: 200 }); // Seus diferenciais matadores surgindo em sequência
+
+// Espera 5 segundos (5000ms) e faz o Zap chamar a atenção do produtor
+    setTimeout(() => {
+        const btnZap = document.getElementById('btn-zap');
+        btnZap.classList.add('animar-zap');
+        
+        // Para de balançar depois de 2 segundos para não irritar o cliente kkk
+        setTimeout(() => {
+            btnZap.classList.remove('animar-zap');
+        }, 2000);
+    }, 5000);
+
+    // EFEITO DRONE: Rolagem suave para todos os links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Impede o "pulo" seco
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Faz a mágica de deslizar suavemente
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // -80px para não cobrir o título com o menu fixo
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
