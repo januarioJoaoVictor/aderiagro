@@ -274,16 +274,37 @@
             /* Previne aquela barra de rolagem horizontal chata no celular */
             body, html { overflow-x: hidden; }
 
-            /* 1. O Cabeçalho (Esconde o menu pra gente fazer o de risquinhos depois) */
+            /* 1. O Cabeçalho (Desamassando a lataria) */
             .menu-navegacao { display: none; }
-            .cabecalho-principal { flex-direction: column; gap: 15px; padding: 20px; }
-            .cabecalho-principal div { justify-content: center; width: 100%; text-align: center; }
+            .cabecalho-principal { 
+                position: relative; 
+                flex-direction: column; 
+                gap: 15px; 
+                padding: 15px 5%; 
+                background-color: #0A1E0F; 
+                text-align: center;
+            }
+            .logo-pequena span { font-size: 22px !important; }
 
-            /* 2. O Hero (Topo) */
-            .hero-conteudo h1 { font-size: 38px; line-height: 1.15; }
+            /* 2. O Hero (Topo) - Dando espaço pro texto respirar */
+            .hero { 
+                height: auto; 
+                min-height: 100vh;
+                padding: 40px 5% 60px 5%; 
+                flex-direction: column; 
+                justify-content: center;
+                text-align: center; 
+            }
+            .hero-conteudo { width: 100%; }
+            .hero-conteudo h1 { font-size: 34px; line-height: 1.2; margin: 25px 0; word-break: break-word; }
             .hero-conteudo p { font-size: 16px; margin-bottom: 30px; }
-            .hero-botoes { flex-direction: column; width: 100%; gap: 15px; }
-            .btn-primario, .btn-secundario { width: 100%; text-align: center; border-radius: 50px; padding: 15px; }
+            
+            /* Tática de Conversão: Esconde a logo gigante no celular pro cliente focar na venda */
+            .hero-logo-grande { display: none; } 
+            
+            /* Botões organizados um embaixo do outro */
+            .hero-botoes { display: flex; flex-direction: column; width: 100%; gap: 15px; margin-top: 10px; }
+            .btn-primario, .btn-secundario { width: 100%; padding: 15px; box-sizing: border-box; display: block; }
 
             /* 3. Ajuste de respiro geral (Padding das seções) */
             .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares { padding: 60px 5%; }
