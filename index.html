@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aderi Agronegócios | Soluções para o Campo</title>
@@ -263,6 +264,55 @@
 
         .animar-zap {
             animation: balancar 0.5s ease infinite;
+        }
+
+        /* =========================================
+           6. RESPONSIVIDADE TOTAL (O Chassi da Caminhonete)
+           ========================================= */
+        @media (max-width: 768px) {
+            
+            /* Previne aquela barra de rolagem horizontal chata no celular */
+            body, html { overflow-x: hidden; }
+
+            /* 1. O Cabeçalho (Esconde o menu pra gente fazer o de risquinhos depois) */
+            .menu-navegacao { display: none; }
+            .cabecalho-principal { flex-direction: column; gap: 15px; padding: 20px; }
+            .cabecalho-principal div { justify-content: center; width: 100%; text-align: center; }
+
+            /* 2. O Hero (Topo) */
+            .hero-conteudo h1 { font-size: 38px; line-height: 1.15; }
+            .hero-conteudo p { font-size: 16px; margin-bottom: 30px; }
+            .hero-botoes { flex-direction: column; width: 100%; gap: 15px; }
+            .btn-primario, .btn-secundario { width: 100%; text-align: center; border-radius: 50px; padding: 15px; }
+
+            /* 3. Ajuste de respiro geral (Padding das seções) */
+            .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares { padding: 60px 5%; }
+            
+            /* Ajuste de todos os títulos grandes do site */
+            .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2, .titulo-pilares { font-size: 32px; line-height: 1.2; word-break: break-word; }
+
+            /* 4. A Seção Sobre */
+            .container-sobre { flex-direction: column; gap: 40px; }
+            .sobre-imagem-wrapper { width: 100%; }
+            .foto-principal { height: 350px; object-position: center 10%; }
+            .sobre-conteudo { width: 100%; }
+            .sobre-destaques { flex-direction: column; gap: 20px; }
+            .destaque-item { width: 100%; }
+            
+            /* Ajustando os selos para não vazarem da tela */
+            .badge-experiencia { bottom: -20px; right: 10px; padding: 15px 20px; transform: scale(0.85); }
+            .selo-autoridade { width: 110px; top: -15px; right: -5px; }
+
+            /* 5. As Vitrines (Pilares, Serviços, Produtos) - Empilhando tudo 1 embaixo do outro */
+            .grid-pilares { grid-template-columns: 1fr; gap: 30px; }
+            .grid-servicos { grid-template-columns: 1fr; gap: 30px; }
+            .grid-produtos { grid-template-columns: 1fr; gap: 30px; }
+            .cabecalho-produtos { flex-direction: column; align-items: flex-start; gap: 15px; }
+
+            /* 6. O Rodapé */
+            .rodape-principal { padding: 60px 5% 30px 5%; }
+            .container-rodape { grid-template-columns: 1fr; gap: 40px; }
+            .base-rodape { flex-direction: column; text-align: center; gap: 15px; }
         }
 
     </style>
