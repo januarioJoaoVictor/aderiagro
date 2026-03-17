@@ -274,37 +274,47 @@
             /* Previne aquela barra de rolagem horizontal chata no celular */
             body, html { overflow-x: hidden; }
 
-            /* 1. O Cabeçalho (Desamassando a lataria) */
+            /* 1. O Cabeçalho (Fundo sólido para não brigar com a imagem de fundo) */
             .menu-navegacao { display: none; }
             .cabecalho-principal { 
                 position: relative; 
                 flex-direction: column; 
                 gap: 15px; 
                 padding: 15px 5%; 
-                background-color: #0A1E0F; 
+                background-color: #0A1E0F !important; /* Verde escuro sólido */
                 text-align: center;
             }
             .logo-pequena span { font-size: 22px !important; }
 
-            /* 2. O Hero (Topo) - Dando espaço pro texto respirar */
+            /* 2. O Hero (Topo) - O CONSÊRTO DA IMAGEM ESTÁ AQUI */
             .hero { 
-                height: auto; 
-                min-height: 100vh;
-                padding: 40px 5% 60px 5%; 
-                flex-direction: column; 
-                justify-content: center;
-                text-align: center; 
+                height: auto !important; 
+                min-height: 100vh !important;
+                padding: 40px 5% 90px 5% !important; /* Espaço para os botões respirarem */
+                display: flex !important;
+                flex-direction: column !important; 
+                justify-content: center !important;
+                text-align: center !important; 
+
+                /* 🔥 OS TRÊS COMANDOS MÁGICOS 👇 */
+                background-image: url('hero/aderiFundo.jpeg') !important; /* Garante que a imagem carregue */
+                background-repeat: no-repeat !important; /* OBRIGA a imagem a NÃO triplicar/repetir */
+                background-size: cover !important;       /* OBRIGA a imagem a esticar e cobrir toda a área, sem distorcer */
+                background-position: center !important;  /* Centraliza a melhor parte da imagem no celular */
             }
-            .hero-conteudo { width: 100%; }
-            .hero-conteudo h1 { font-size: 34px; line-height: 1.2; margin: 25px 0; word-break: break-word; }
-            .hero-conteudo p { font-size: 16px; margin-bottom: 30px; }
+            
+            .hero-conteudo { width: 100% !important; }
+            
+            /* Diminuí a fonte pra 30px pra caber redondo na tela */
+            .hero-conteudo h1 { font-size: 30px !important; line-height: 1.3 !important; margin: 20px 0 !important; }
+            .hero-conteudo p { font-size: 16px !important; margin-bottom: 30px !important; }
             
             /* Tática de Conversão: Esconde a logo gigante no celular pro cliente focar na venda */
-            .hero-logo-grande { display: none; } 
+            .hero-logo-grande { display: none !important; } 
             
             /* Botões organizados um embaixo do outro */
-            .hero-botoes { display: flex; flex-direction: column; width: 100%; gap: 15px; margin-top: 10px; }
-            .btn-primario, .btn-secundario { width: 100%; padding: 15px; box-sizing: border-box; display: block; }
+            .hero-botoes { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 15px !important; margin-top: 10px !important; }
+            .btn-primario, .btn-secundario { width: 100% !important; padding: 15px !important; box-sizing: border-box !important; }
 
             /* 3. Ajuste de respiro geral (Padding das seções) */
             .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares { padding: 60px 5%; }
