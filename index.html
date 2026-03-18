@@ -1,129 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aderi Agronegócios | Soluções para o Campo</title>
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================
-           1. RESET GLOBAL PERFEITO (Sem esmagar)
+           1. RESET GLOBAL
            ========================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background-color: #ffffff; }
+
+        /* =========================================
+           CABEÇALHO BRANCO PREMIUM
+           ========================================= */
+        .cabecalho-principal { 
+            position: relative; width: 100%; z-index: 10; display: flex; justify-content: space-between; 
+            align-items: center; padding: 20px 8%; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
         }
+        
+        .menu-navegacao ul { display: flex; gap: 30px; list-style: none; }
+        .menu-navegacao a { color: #1F2937; text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.3s ease; }
+        .menu-navegacao a:hover { color: #E67E22; }
 
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden;
-            background-color: #ffffff;
-        }
-
-
-           /* =========================================
-           2. HERO SECTION
+        /* =========================================
+           2. HERO SECTION (Sem Insulfilm e Focado)
            ========================================= */
         .hero-section { 
-            /* Baixei o insulfilm de 0.7 para 0.5 para clarear um pouco a foto! */
-            background-image: linear-gradient(rgba(10, 30, 15, 0.5), rgba(10, 30, 15, 0.5)), url('hero/aderiFundo.jpeg'); 
-            background-size: 105%; 
-            background-position: center; 
-            height: 100vh; 
+            background-image: url('hero/aderiFundo3.png'); 
+            
+            /* 🔥 O TRUQUE DE ÓTICA: Aumentamos o zoom pra 125%.
+               Isso faz a imagem "inchar" e empurra a planta mais pra direita! */
+            background-size: 125% auto; 
+            
+            /* Mantemos o pino cravado na esquerda (0%) */
+            background-position: 0% center; 
+            
+            height: 85vh; 
             width: 100%; 
             position: relative; 
+            display: flex; 
+            align-items: center; 
             overflow: hidden; 
         }
         
-        .hero-layout { display: flex; justify-content: space-between; align-items: center; padding: 0 8%; height: 100%; }
+        .hero-layout { display: flex; justify-content: space-between; align-items: center; padding: 0 8%; width: 100%; }
 
-        .cabecalho-principal { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 30px 8%; }
-        .logo-pequena img { max-width: 140px; height: auto; }
-        .menu-navegacao ul { display: flex; gap: 30px; list-style: none; }
-        .menu-navegacao a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.3s ease; }
-        .menu-navegacao a:hover { color: #E67E22; }
-
-        /* Aumentamos a caçamba de 45% para 55% para caber a frase inteira */
-        .hero-conteudo { width: 55%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: #ffffff; }
+        /* Aumentei a largura pra 70% já que tiramos a logo do lado direito */
+        .hero-conteudo { width: 70%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: #ffffff; }
         
-        .badge-tecnologia { display: inline-block; background-color: rgba(255, 255, 255, 0.1); color: #E67E22; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; border: 1px solid #E67E22; }
+        /* 🔥 TRUQUE DE MESTRE: Sombras sutis para o texto branco não sumir na foto clara */
+        .hero-conteudo h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 30px; text-shadow: 2px 4px 10px rgba(0,0,0,0.6); } 
+        .hero-conteudo p { font-size: 18px; margin-bottom: 50px; max-width: 600px; line-height: 1.5; color: #ffffff; text-shadow: 1px 2px 8px rgba(0,0,0,0.8); } 
+        .slogan-aderi { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; font-style: italic; color: #ffffff; margin-top: 60px; letter-spacing: 1px; text-shadow: 2px 4px 10px rgba(0,0,0,0.6); } 
         
-        /* AQUI ESTÁ A MUDANÇA 1: Diminuímos a margem embaixo do título para 10px */
-        .hero-conteudo h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
-        
-        /* Aplicamos a Playfair Display em itálico: pura elegância e contraste! */
-        .slogan-aderi { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 26px; 
-            font-weight: 600; 
-            font-style: italic; 
-            color: #ffffff; 
-            margin-top: 45px; 
-            letter-spacing: 1px; 
-        }
         .destaque-laranja { color: #E67E22; }
-        /* Aumentamos de 40px para 100px para empurrar o final da foto pra baixo kkk */
-        .hero-conteudo p { font-size: 18px; margin-bottom: 100px; max-width: 600px; line-height: 1.5; }
-        
-        /* 1. A caçamba travada no tamanho certo (40% da tela) */
-        .hero-logo-grande { width: 40%; text-align: right; display: flex; justify-content: center; align-items: center; }
-        
-        /* 2. A logo do tamanho normal, com a trava de segurança, puxada 40px para a esquerda */
-        .hero-logo-grande img { width: 100%; max-width: 800px; height: auto; transform: translateX(-40px); }
         
         .hero-botoes { display: flex; gap: 20px; }
-        .btn-primario { display: inline-block; background-color: #E67E22; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: 2px solid #E67E22; }
-        .btn-primario:hover { background-color: #D35400; border-color: #D35400; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3); }
-        .btn-secundario { display: inline-block; background-color: transparent; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid #ffffff; transition: all 0.3s ease; }
-        .btn-secundario:hover { background-color: #ffffff; color: #1a1a1a; transform: translateY(-3px); }
+        .btn-primario { display: inline-block; background-color: #E67E22; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: 2px solid #E67E22; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-primario:hover { background-color: #D35400; border-color: #D35400; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230, 126, 34, 0.5); }
+        .btn-secundario { display: inline-block; background-color: transparent; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid #ffffff; transition: all 0.3s ease; text-shadow: 1px 2px 5px rgba(0,0,0,0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-secundario:hover { background-color: #ffffff; color: #1a1a1a; transform: translateY(-3px); text-shadow: none; }
     
         /* =========================================
-           3. SEÇÕES MEIO (Sobre, Pilares, Serviços, Produtos)
+           3. SEÇÕES MEIO 
            ========================================= */
-        .secao-sobre, .secao-servicos, .secao-produtos { padding: 100px 8%; background-color: #ffffff; overflow-x: hidden; }
-        .secao-pilares { padding: 100px 8%; background-color: #F9FAFB; overflow-x: hidden; }
+        .secao-sobre, .secao-servicos, .secao-produtos { padding: 100px 8%; background-color: #ffffff; }
+        .secao-pilares { padding: 100px 8%; background-color: #F9FAFB; }
         
         .container-sobre { display: flex; justify-content: space-between; align-items: center; gap: 60px; }
         .sobre-imagem-wrapper { width: 45%; position: relative; }
-        
-        /* Fundo escuro premium atrás da foto */
         .sobre-imagem-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background-color: #094211; border-radius: 24px; z-index: 0; }
-        
-        /* Aumentamos a altura de 420px para 550px para dar mais imponência */
-        .foto-principal { 
-            width: 100%; 
-            height: 550px; /* <--- Aumentei aqui! */
-            object-fit: cover; 
-            object-position: center 25%; /* Ajusta para focar mais no rosto de vocês */
-            border-radius: 24px; 
-            position: relative; 
-            z-index: 1; 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
-            filter: grayscale(100%) contrast(115%); 
-            transition: all 0.5s ease; 
-        }
-
-        /* A MÁGICA: Ganha cor e dá o zoom quando o mouse passa! */
+        .foto-principal { width: 100%; height: 550px; object-fit: cover; object-position: center 25%; border-radius: 24px; position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); filter: grayscale(100%) contrast(115%); transition: all 0.5s ease; }
         .foto-principal:hover { filter: grayscale(0%) contrast(100%); transform: scale(1.03); }
         
-        /* O SELO: Ganhou a borda laranja e o ícone na cor da marca */
         .badge-experiencia { position: absolute; bottom: -30px; right: -30px; background-color: #ffffff; padding: 20px 30px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 15px; z-index: 2; border: 2px solid #E67E22; }
         .icone-badge { font-size: 44px; color: #E67E22; }
-        
         .badge-texto { display: flex; flex-direction: column; }
         .badge-numero { font-size: 28px; font-weight: 800; color: #1F2937; line-height: 1; }
         .badge-legenda { font-size: 14px; color: #6B7280; font-weight: 500; margin-top: 4px; }
+        
         .sobre-conteudo { width: 55%; }
         .subtitulo-secao { color: #059669; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 15px; }
         .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2 { font-size: 42px; font-weight: 800; color: #1F2937; line-height: 1.2; margin-bottom: 25px; }
@@ -133,6 +96,7 @@
         .icone-destaque { font-size: 32px; color: #059669; background-color: #ECFDF5; padding: 12px; border-radius: 12px; }
         .destaque-texto h4 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
         .destaque-texto p { font-size: 14px; color: #6B7280; line-height: 1.5; margin-bottom: 0; }
+        
         .cabecalho-secao-centro { text-align: center; margin-bottom: 60px; }
         .grid-pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         .grid-servicos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
@@ -160,7 +124,7 @@
         .tags-produto span { background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); color: #ffffff; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.3); }
 
         /* =========================================
-           4. DIFERENCIAIS (Cápsulas Estilo Dinac)
+           4. DIFERENCIAIS
            ========================================= */
         .secao-diferenciais { padding: 100px 8%; background-color: #0A1E0F; }
         .secao-diferenciais .subtitulo-secao { color: #F59E0B; }
@@ -168,191 +132,95 @@
 
         .grid-ovais { display: flex; justify-content: center; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
 
-        .card-oval { 
-            width: 340px; 
-            height: 500px; 
-            border-radius: 170px; 
-            background-size: cover; 
-            background-position: center; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end; 
-            padding: 50px 30px; 
-            text-align: center; 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
-            transition: transform 0.5s ease, box-shadow 0.5s ease; 
-        }
+        .card-oval { width: 340px; height: 500px; border-radius: 170px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 50px 30px; text-align: center; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); transition: transform 0.5s ease, box-shadow 0.5s ease; }
         .card-oval:hover { transform: translateY(-15px); box-shadow: 0 30px 50px rgba(230, 126, 34, 0.3); }
         .conteudo-oval h3 { color: #ffffff; font-size: 26px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .conteudo-oval p { color: #E5E7EB; font-size: 15px; line-height: 1.6; }
 
-        .titulo-pilares {
-            font-size: 48px; /* Bem grande para ter autoridade */
-            font-weight: 900; /* Extra bold */
-            color: #0A1E0F; /* O nosso verde mais escuro e sério */
-            margin-top: 10px;
-            letter-spacing: -1.5px; /* Deixa a letra "apertada" igual marca de luxo */
-            text-transform: none; /* Mantém elegante, sem ficar gritando em caixa alta */
-        }
-
-        /* O subtítulo que fica em cima ("Nossos Pilares") também precisa de um ajuste */
-        .subtitulo-secao {
-            color: #E67E22; /* Laranja da marca para dar o contraste */
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-/* =========================================
-           5. RODAPÉ (Footer Premium)
+        .titulo-pilares { font-size: 48px; font-weight: 900; color: #0A1E0F; margin-top: 10px; letter-spacing: -1.5px; text-transform: none; }
+        
+        /* =========================================
+           5. RODAPÉ
            ========================================= */
-        .rodape-principal { background-color: #0A1E0F; color: #ffffff; padding: 80px 8% 40px 8%; font-family: 'Segoe UI', sans-serif; }
-        
+        .rodape-principal { background-color: #0A1E0F; color: #ffffff; padding: 80px 8% 40px 8%; }
         .container-rodape { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 60px; margin-bottom: 60px; }
-        
         .coluna-rodape h3 { color: #E67E22; font-size: 18px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-        
         .logo-rodape { font-family: 'Comfortaa', cursive; font-weight: 700; font-size: 24px; margin-bottom: 20px; display: block; }
         .texto-sobre-rodape { color: #9CA3AF; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
-        
         .links-rodape { list-style: none; }
         .links-rodape li { margin-bottom: 15px; }
         .links-rodape a { color: #D1D5DB; text-decoration: none; transition: color 0.3s ease; font-size: 15px; }
         .links-rodape a:hover { color: #E67E22; padding-left: 5px; }
-        
         .info-contato { display: flex; flex-direction: column; gap: 15px; }
         .item-contato { display: flex; align-items: flex-start; gap: 12px; color: #D1D5DB; font-size: 15px; }
         .item-contato i { color: #E67E22; font-size: 20px; margin-top: 3px; }
-
-        /* Divisória e Copyright */
         .base-rodape { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; color: #6B7280; font-size: 14px; }
         .redes-sociais { display: flex; gap: 20px; }
         .redes-sociais a { color: #ffffff; font-size: 24px; transition: transform 0.3s ease, color 0.3s ease; }
         .redes-sociais a:hover { color: #E67E22; transform: translateY(-5px); }
 
-        /* Botão Flutuante do Zap */
-        .whatsapp-fixo {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50px; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1000; transition: all 0.3s ease; text-decoration: none; }
+        .whatsapp-fixo:hover { transform: scale(1.1) rotate(15deg); background-color: #128c7e; }
+        @keyframes balancar { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        .animar-zap { animation: balancar 0.5s ease infinite; }
 
-        .whatsapp-fixo:hover {
-            transform: scale(1.1) rotate(15deg);
-            background-color: #128c7e;
-        }
-
-        /* Animação de pulo que o JS vai disparar */
-        @keyframes balancar {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .animar-zap {
-            animation: balancar 0.5s ease infinite;
-        }
-
-/* =========================================
-           6. RESPONSIVIDADE TOTAL (O Chassi da Caminhonete)
+        /* =========================================
+           6. RESPONSIVIDADE BLINDADA (CELULAR)
            ========================================= */
         @media (max-width: 768px) {
-            
-            /* Previne aquela barra de rolagem horizontal chata no celular */
             body, html { overflow-x: hidden; }
 
-            /* 1. O Cabeçalho (Desamassando a lataria) */
             .menu-navegacao { display: none; }
-            .cabecalho-principal { 
-                position: relative; 
-                flex-direction: column; 
-                gap: 15px; 
-                padding: 15px 5%; 
-                background-color: #0A1E0F !important; 
-                text-align: center;
-            }
-            .logo-pequena span { font-size: 22px !important; }
+            .cabecalho-principal { flex-direction: column; gap: 15px; padding: 20px 5%; text-align: center; }
+            .logo-pequena span { font-size: 24px !important; }
 
-            /* 2. O Hero (Topo) - AGORA COM O NOME CERTO: hero-section */
-            .hero-section { 
-                height: auto !important; 
-                min-height: 100vh !important;
-                padding: 40px 5% 90px 5% !important; /* Empurra a seção de baixo */
-                display: flex !important;
-                flex-direction: column !important; 
-                justify-content: center !important;
-                text-align: center !important; 
+            /* 🔥 CELULAR: SEM INSULFILM TAMBÉM */
+            .hero-section { height: auto !important; padding: 60px 0 !important; background-image: url('hero/aderiFundo3.png') !important; background-size: cover !important; background-position: center center !important; }
+            .hero-layout { flex-direction: column !important; padding: 0 5% !important; text-align: center !important; }
+            
+            .hero-conteudo { width: 100% !important; align-items: center !important; }
+            .hero-conteudo h1 { font-size: 32px !important; margin-bottom: 20px !important; } 
+            .hero-conteudo p { font-size: 16px !important; margin-bottom: 40px !important; } 
+            .slogan-aderi { font-size: 20px !important; margin-top: 40px !important; } 
+            
+            .hero-botoes { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 15px !important; }
+            .btn-primario, .btn-secundario { width: 100% !important; padding: 15px !important; box-sizing: border-box !important; }
 
-                /* 🔥 TRAVA TOTAL DA IMAGEM: Nunca mais vai triplicar */
-                background-repeat: no-repeat !important; 
-                background-size: cover !important;       
-                background-position: center center !important; 
-                background-attachment: scroll !important; 
-            }
-            
-            .hero-conteudo { width: 100% !important; }
-            .hero-conteudo h1 { font-size: 30px !important; line-height: 1.3 !important; margin: 20px 0 !important; }
-            .hero-conteudo p { font-size: 16px !important; margin-bottom: 30px !important; }
-            
-            /* Esconde a logo gigante no celular pro cliente focar na venda */
-            .hero-logo-grande { display: none !important; } 
-            
-            /* Botões organizados um embaixo do outro */
-            .hero-botoes { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 15px !important; margin-top: 10px !important; }
-            .btn-primario, .btn-secundario { width: 100% !important; padding: 15px !important; box-sizing: border-box !important; display: block !important; }
+            .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares, .secao-diferenciais { padding: 50px 5% !important; }
+            .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2, .titulo-pilares { font-size: 28px !important; line-height: 1.3 !important; }
 
-            /* 3. Ajuste de respiro geral (Padding das seções) */
-            .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares { padding: 60px 5%; }
-            
-            /* Ajuste de todos os títulos grandes do site */
-            .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2, .titulo-pilares { font-size: 32px; line-height: 1.2; word-break: break-word; }
-
-            /* 4. A Seção Sobre */
             .container-sobre { flex-direction: column; gap: 40px; }
             .sobre-imagem-wrapper { width: 100%; }
-            .foto-principal { height: 350px; object-position: center 10%; }
-            .sobre-conteudo { width: 100%; }
+            .foto-principal { height: 300px; }
+            .sobre-conteudo { width: 100%; text-align: left; }
             .sobre-destaques { flex-direction: column; gap: 20px; }
             .destaque-item { width: 100%; }
-            
-            /* Ajustando os selos para não vazarem da tela */
-            .badge-experiencia { bottom: -20px; right: 10px; padding: 15px 20px; transform: scale(0.85); }
-            .selo-autoridade { width: 110px; top: -15px; right: -5px; }
+            .badge-experiencia { bottom: -15px; right: 10px; transform: scale(0.8); }
 
-            /* 5. As Vitrines (Pilares, Serviços, Produtos) - Empilhando tudo 1 embaixo do outro */
             .grid-pilares { grid-template-columns: 1fr; gap: 30px; }
             .grid-servicos { grid-template-columns: 1fr; gap: 30px; }
             .grid-produtos { grid-template-columns: 1fr; gap: 30px; }
             .cabecalho-produtos { flex-direction: column; align-items: flex-start; gap: 15px; }
+            
+            .grid-ovais { flex-direction: column; align-items: center; gap: 30px; }
+            .card-oval { width: 100%; max-width: 320px; height: 400px; }
 
-            /* 6. O Rodapé */
-            .rodape-principal { padding: 60px 5% 30px 5%; }
-            .container-rodape { grid-template-columns: 1fr; gap: 40px; }
+            .rodape-principal { padding: 50px 5% 30px 5%; }
+            .container-rodape { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .base-rodape { flex-direction: column; text-align: center; gap: 15px; }
+            .redes-sociais { justify-content: center; }
+            .info-contato { align-items: center; }
         }
-
     </style>
 </head>
 <body>
 
     <header class="cabecalho-principal">
-        <div class="logo-pequena" style="display: flex; align-items: center;">
-            <span style="color: #ffffff; font-family: 'Comfortaa', cursive; font-weight: 700; font-size: 26px; letter-spacing: -1px;">
-                aderi <span style="color: #E67E22;">agronegócios</span>
-            </span>
+        
+        <div class="logo-pequena" style="display: flex; align-items: center; gap: 15px;">
+            
+            <img src="logoAderi/logo-aderi-4k.png" alt="Ícone Aderi" style="height: 100px; width: auto; margin-left: -20px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));">
+            
         </div>
         
         <div style="display: flex; align-items: center; gap: 40px;">
@@ -364,15 +232,14 @@
                     <li><a href="#diferenciais">Diferenciais</a></li>
                 </ul>
             </nav>
-            
             <a href="#rodape" class="btn-primario">Fale Conosco</a>
         </div>
+        
     </header>
 
     <section class="hero-section">
         <div class="hero-layout">
             <div class="hero-conteudo">
-                
                 
                 <h1>Especialistas em <br> <span class="destaque-laranja">soluções</span> para o agronegócio</h1>
                 
@@ -381,15 +248,12 @@
                 <div class="hero-botoes">
                     <a href="#servicos" class="btn-primario">Conheça nossos serviços &gt;</a>
                     <a href="#sobre" class="btn-secundario">Nossa História</a>
-            </div>
+                </div>
                 
                 <div class="slogan-aderi">Venha <span class="destaque-laranja">aderir</span> essa forma de fazer negócio.</div>
             </div>
             
-            <div class="hero-logo-grande">
-                <img src="logoAderi/logo-aderi-4k.png" alt="Logotipo Aderi Agronegócios">
             </div>
-        </div>
     </section>
 
     <section id="sobre" class="secao-sobre">
@@ -506,25 +370,19 @@
                 <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/sementes.jpg');">
                     <div class="conteudo-produto">
                         <h3>Sementes de Alta Genética</h3>
-                        <div class="tags-produto">
-                            <span>Soja</span><span>Milho</span><span>Trigo</span>
-                        </div>
+                        <div class="tags-produto"><span>Soja</span><span>Milho</span><span>Trigo</span></div>
                     </div>
                 </div>
                 <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/defensivo.jpg');">
                     <div class="conteudo-produto">
                         <h3>Defensivos Agrícolas</h3>
-                        <div class="tags-produto">
-                            <span>Herbicidas</span><span>Fungicidas</span><span>Inseticidas</span>
-                        </div>
+                        <div class="tags-produto"><span>Herbicidas</span><span>Fungicidas</span><span>Inseticidas</span></div>
                     </div>
                 </div>
                 <div class="card-produto" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0) 60%), url('produtos/foliar.jpg');">
                     <div class="conteudo-produto">
                         <h3>Nutrição e Biológicos</h3>
-                        <div class="tags-produto">
-                            <span>Fertilizantes</span><span>Foliares</span><span>Bioinsumos</span>
-                        </div>
+                        <div class="tags-produto"><span>Fertilizantes</span><span>Foliares</span><span>Bioinsumos</span></div>
                     </div>
                 </div>
             </div> 
@@ -538,28 +396,24 @@
                 <h2>Nossos Diferenciais</h2>
             </div>
             <div class="grid-ovais">
-                
                 <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/agronomo.png');">
                     <div class="conteudo-oval">
                         <h3>Assistência</h3>
                         <p>Lado a lado com o produtor rural, do planejamento da safra até o momento da colheita.</p>
                     </div>
                 </div>
-
                 <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/transpsorte.png');">
                     <div class="conteudo-oval">
                         <h3>Logística Ágil</h3>
                         <p>Agilidade e compromisso para garantir que o seu insumo chegue no tempo certo, sem atrasos.</p>
                     </div>
                 </div>
-
                 <div class="card-oval" style="background-image: linear-gradient(to top, rgba(10, 30, 15, 0.95) 0%, rgba(0, 0, 0, 0.2) 60%), url('diferenciais/qualidade.png');">
                     <div class="conteudo-oval">
                         <h3>Alta Qualidade</h3>
                         <p>Trabalhamos com o que há de melhor no mercado em nutrição, biológicos e defensivos.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -567,29 +421,14 @@
     <footer id="rodape" class="rodape-principal">
         <div class="container-rodape">
             <div class="coluna-rodape">
-                <div class="logo-rodape">
-                    aderi <span style="color: #E67E22;">agronegócios</span>
-                </div>
-                <p class="texto-sobre-rodape">
-                    Comprometidos com o sucesso do homem do campo, entregando tecnologia de ponta e parcerias duradouras para a sua lavoura.
-                </p>
+                <div class="logo-rodape">aderi <span style="color: #E67E22;">agronegócios</span></div>
+                <p class="texto-sobre-rodape">Comprometidos com o sucesso do homem do campo, entregando tecnologia de ponta e parcerias duradouras para a sua lavoura.</p>
                 <div class="redes-sociais">
-                    <a href="https://www.instagram.com/aderiagro" target="_blank">
-                        <i class="ph ph-instagram-logo"></i>
-                    </a>
-                    
-                    <a href="https://www.facebook.com/aderiagro" target="_blank">
-                        <i class="ph ph-facebook-logo"></i>
-                    </a>
-                    
-                    <a href="https://wa.me/5537999320009?text=Olá! Estava navegando no site da Aderi Agro e gostaria de um atendimento." target="_blank">
-                        <i class="ph ph-whatsapp-logo"></i>
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/company/aderiagro" target="_blank">
-                        <i class="ph ph-linkedin-logo"></i>
-                    </a>
-            </div>
+                    <a href="https://www.instagram.com/aderiagro" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="https://www.facebook.com/aderiagro" target="_blank"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="https://wa.me/5537999320009?text=Olá! Estava navegando no site da Aderi Agro e gostaria de um atendimento." target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="https://www.linkedin.com/company/aderiagro" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
             </div>
 
             <div class="coluna-rodape">
@@ -615,18 +454,9 @@
             <div class="coluna-rodape">
                 <h3>Fale Conosco</h3>
                 <div class="info-contato">
-                    <div class="item-contato">
-                        <i class="ph ph-map-pin"></i>
-                        <span>Piumhi - MG<br>Rua Miguel Colto - Numero 733 / Centro</span>
-                    </div>
-                    <div class="item-contato">
-                        <i class="ph ph-phone"></i>
-                        <span>(37) 3371-7195</span>
-                    </div>
-                    <div class="item-contato">
-                        <i class="ph ph-envelope"></i>
-                        <span>fiscal@aderiagro.com.br</span>
-                    </div>
+                    <div class="item-contato"><i class="ph ph-map-pin"></i><span>Piumhi - MG<br>Rua Miguel Colto - Numero 733 / Centro</span></div>
+                    <div class="item-contato"><i class="ph ph-phone"></i><span>(37) 3371-7195</span></div>
+                    <div class="item-contato"><i class="ph ph-envelope"></i><span>fiscal@aderiagro.com.br</span></div>
                 </div>
             </div>
         </div>
@@ -645,52 +475,33 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
 <script>
-    // Configuração do "Pai tá on" no JavaScript kkk
-    const sr = ScrollReveal({
-        origin: 'top',      // De onde a animação vem
-        distance: '50px',   // Qual a distância do deslocamento
-        duration: 2000,     // Quanto tempo dura a animação (2 segundos)
-        delay: 200,         // Espera um pouquinho antes de começar
-        reset: false        // Se a animação deve repetir toda vez que subir/descer (recomendo false)
-    });
+    const sr = ScrollReveal({ origin: 'top', distance: '50px', duration: 2000, delay: 200, reset: false });
 
-    // Agora dizemos quem vai aparecer!
-    sr.reveal('.hero-conteudo', { origin: 'left' }); // Texto do Hero vem da esquerda
-    sr.reveal('.hero-logo-grande', { origin: 'right', delay: 400 }); // Logo vem da direita
-    sr.reveal('.card-pilar', { interval: 200 }); // Cards de Pilares aparecem um depois do outro
-    sr.reveal('.sobre-imagem-wrapper', { origin: 'bottom' }); // Foto da família sobe
-    sr.reveal('.sobre-conteudo', { origin: 'bottom', delay: 400 }); // Texto do sobre sobe depois
-    sr.reveal('.card-oval', { interval: 200 }); // Seus diferenciais matadores surgindo em sequência
+    sr.reveal('.hero-conteudo', { origin: 'left' }); 
+    sr.reveal('.card-pilar', { interval: 200 }); 
+    sr.reveal('.sobre-imagem-wrapper', { origin: 'bottom' }); 
+    sr.reveal('.sobre-conteudo', { origin: 'bottom', delay: 400 }); 
+    sr.reveal('.card-oval', { interval: 200 }); 
 
-// Espera 5 segundos (5000ms) e faz o Zap chamar a atenção do produtor
     setTimeout(() => {
         const btnZap = document.getElementById('btn-zap');
         btnZap.classList.add('animar-zap');
-        
-        // Para de balançar depois de 2 segundos para não irritar o cliente kkk
-        setTimeout(() => {
-            btnZap.classList.remove('animar-zap');
-        }, 2000);
+        setTimeout(() => { btnZap.classList.remove('animar-zap'); }, 2000);
     }, 5000);
 
-    // EFEITO DRONE: Rolagem suave para todos os links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Impede o "pulo" seco
-
+            e.preventDefault(); 
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-
             if (targetElement) {
-                // Faz a mágica de deslizar suavemente
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, // -80px para não cobrir o título com o menu fixo
+                    top: targetElement.offsetTop - 80, 
                     behavior: 'smooth'
                 });
             }
         });
     });
-
 </script>
 
 </body>
