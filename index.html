@@ -3,316 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aderi Agronegócios | Soluções para o Campo</title>
-
-    <meta name="google-site-verification" content="Wl3P24GvP2LJsDl3R-TXwuHa_5NXc5BySDhadMPqKZU" />
-
-    <link rel="icon" type="image/png" href="logoAderi/favicon.png">
     
-    <link rel="apple-touch-icon" href="logoAderi/favicon.png">
+    <title>Aderi Agronegócios | Soluções para o Campo</title>
+    
+    <link rel="icon" type="image/png" href="logoAderi/logoTratadaNavegador.png">
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 
-    <style>
-        /* =========================================
-           1. RESET GLOBAL
-           ========================================= */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background-color: #ffffff; }
-
-        /* =========================================
-           CABEÇALHO BRANCO PREMIUM
-           ========================================= */
-        .cabecalho-principal { 
-            position: relative; width: 100%; z-index: 10; display: flex; justify-content: space-between; 
-            align-items: center; padding: 20px 8%; background-color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-        }
-        
-        .menu-navegacao ul { display: flex; gap: 30px; list-style: none; }
-        .menu-navegacao a { color: #1F2937; text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.3s ease; }
-        .menu-navegacao a:hover { color: #E67E22; }
-        .icone-menu-mobile { display: none; font-size: 38px; color: #1F2937; cursor: pointer; transition: color 0.3s; }
-        .icone-menu-mobile:hover { color: #E67E22; }
-
-        /* =========================================
-           2. HERO SECTION (Sem Insulfilm e Focado)
-           ========================================= */
-        .hero-section { 
-            background-image: url('hero/aderiFundo3.png'); 
-            
-            /* 🔥 O TRUQUE DE ÓTICA: Aumentamos o zoom pra 125%.
-               Isso faz a imagem "inchar" e empurra a planta mais pra direita! */
-            background-size: 125% auto; 
-            
-            /* Mantemos o pino cravado na esquerda (0%) */
-            background-position: 0% center; 
-            
-            height: 85vh; 
-            width: 100%; 
-            position: relative; 
-            display: flex; 
-            align-items: center; 
-            overflow: hidden; 
-        }
-        
-        .hero-layout { display: flex; justify-content: space-between; align-items: center; padding: 0 8%; width: 100%; }
-
-        /* Aumentei a largura pra 70% já que tiramos a logo do lado direito */
-        .hero-conteudo { width: 70%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: #ffffff; }
-        
-        /* 🔥 TRUQUE DE MESTRE: Sombras sutis para o texto branco não sumir na foto clara */
-        .hero-conteudo h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 30px; text-shadow: 2px 4px 10px rgba(0,0,0,0.6); } 
-        .hero-conteudo p { font-size: 18px; margin-bottom: 50px; max-width: 600px; line-height: 1.5; color: #ffffff; text-shadow: 1px 2px 8px rgba(0,0,0,0.8); } 
-        .slogan-aderi { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; font-style: italic; color: #ffffff; margin-top: 60px; letter-spacing: 1px; text-shadow: 2px 4px 10px rgba(0,0,0,0.6); } 
-        
-        .destaque-laranja { color: #E67E22; }
-        
-        .hero-botoes { display: flex; gap: 20px; }
-        .btn-primario { display: inline-block; background-color: #E67E22; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; border: 2px solid #E67E22; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-primario:hover { background-color: #D35400; border-color: #D35400; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(230, 126, 34, 0.5); }
-        .btn-secundario { display: inline-block; background-color: transparent; color: #ffffff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; border: 2px solid #ffffff; transition: all 0.3s ease; text-shadow: 1px 2px 5px rgba(0,0,0,0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .btn-secundario:hover { background-color: #ffffff; color: #1a1a1a; transform: translateY(-3px); text-shadow: none; }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-        /* =========================================
-           3. SEÇÕES MEIO 
-           ========================================= */
-        .secao-sobre, .secao-servicos, .secao-produtos { padding: 100px 8%; background-color: #ffffff; }
-        .secao-pilares { padding: 100px 8%; background-color: #F9FAFB; }
-        
-        .container-sobre { display: flex; justify-content: space-between; align-items: center; gap: 60px; }
-        .sobre-imagem-wrapper { width: 45%; position: relative; }
-        .sobre-imagem-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background-color: #094211; border-radius: 24px; z-index: 0; }
-        .foto-principal { width: 100%; height: 550px; object-fit: cover; object-position: center 25%; border-radius: 24px; position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); filter: grayscale(100%) contrast(115%); transition: all 0.5s ease; }
-        .foto-principal:hover { filter: grayscale(0%) contrast(100%); transform: scale(1.03); }
-        
-        .badge-experiencia { position: absolute; bottom: -30px; right: -30px; background-color: #ffffff; padding: 20px 30px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 15px; z-index: 2; border: 2px solid #E67E22; }
-        .icone-badge { font-size: 44px; color: #E67E22; }
-        .badge-texto { display: flex; flex-direction: column; }
-        .badge-numero { font-size: 28px; font-weight: 800; color: #1F2937; line-height: 1; }
-        .badge-legenda { font-size: 14px; color: #6B7280; font-weight: 500; margin-top: 4px; }
-        
-        .sobre-conteudo { width: 55%; }
-        .subtitulo-secao { color: #059669; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 15px; }
-        .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2 { font-size: 42px; font-weight: 800; color: #1F2937; line-height: 1.2; margin-bottom: 25px; }
-        .sobre-conteudo p, .descricao-secao { font-size: 16px; color: #4B5563; line-height: 1.7; margin-bottom: 20px; }
-        .sobre-destaques { display: flex; gap: 30px; margin-top: 40px; }
-        .destaque-item { display: flex; align-items: flex-start; gap: 15px; width: 50%; }
-        .icone-destaque { font-size: 32px; color: #059669; background-color: #ECFDF5; padding: 12px; border-radius: 12px; }
-        .destaque-texto h4 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
-        .destaque-texto p { font-size: 14px; color: #6B7280; line-height: 1.5; margin-bottom: 0; }
-        
-        .cabecalho-secao-centro { text-align: center; margin-bottom: 60px; }
-        .grid-pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .grid-servicos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .card-pilar, .card-servico { background-color: #ffffff; padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); text-align: center; transition: all 0.4s ease; border: 2px solid transparent; }
-        .card-servico { text-align: left; border-radius: 20px; border: 1px solid #F3F4F6; }
-        .card-pilar:hover, .card-servico:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(5, 150, 105, 0.1); border-color: #059669; }
-        .icone-wrapper { width: 80px; height: 80px; background-color: #FFF7ED; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 30px auto; }
-        .icone-wrapper i { font-size: 40px; color: #E67E22; }
-        .icone-servico-wrapper { width: 60px; height: 60px; background-color: #ECFDF5; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
-        .icone-servico-wrapper i { font-size: 32px; color: #059669; }
-        .card-pilar h3, .card-servico h3 { font-size: 20px; font-weight: 700; color: #1F2937; margin-bottom: 15px; }
-        .card-pilar p, .card-servico p { font-size: 15px; color: #6B7280; line-height: 1.6; }
-        .lista-valores { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; }
-        .lista-valores li { font-size: 15px; color: #4B5563; display: flex; align-items: center; gap: 10px; }
-        .lista-valores li i { color: #059669; font-size: 20px; }
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        .cabecalho-produtos { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
-        .link-catalogo { color: #059669; font-weight: 700; text-decoration: none; font-size: 16px; display: flex; align-items: center; gap: 6px; transition: color 0.3s ease; }
-        .link-catalogo:hover { color: #E67E22; }
-        .grid-produtos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card-produto { height: 420px; border-radius: 20px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; }
-        .card-produto:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .conteudo-produto h3 { color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 15px; }
-        .tags-produto { display: flex; gap: 10px; flex-wrap: wrap; }
-        .tags-produto span { background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); color: #ffffff; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.3); }
-
-        /* =========================================
-           4. DIFERENCIAIS
-           ========================================= */
-        .secao-diferenciais { padding: 100px 8%; background-color: #0A1E0F; }
-        .secao-diferenciais .subtitulo-secao { color: #F59E0B; }
-        .secao-diferenciais h2 { color: #ffffff; }
-
-        .grid-ovais { display: flex; justify-content: center; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
-
-        .card-oval { width: 340px; height: 500px; border-radius: 170px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 50px 30px; text-align: center; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); transition: transform 0.5s ease, box-shadow 0.5s ease; }
-        .card-oval:hover { transform: translateY(-15px); box-shadow: 0 30px 50px rgba(230, 126, 34, 0.3); }
-        .conteudo-oval h3 { color: #ffffff; font-size: 26px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .conteudo-oval p { color: #E5E7EB; font-size: 15px; line-height: 1.6; }
-
-        .titulo-pilares { font-size: 48px; font-weight: 900; color: #0A1E0F; margin-top: 10px; letter-spacing: -1.5px; text-transform: none; }
-        
-        /* =========================================
-           5. RODAPÉ
-           ========================================= */
-        .rodape-principal { background-color: #0A1E0F; color: #ffffff; padding: 80px 8% 40px 8%; }
-        .container-rodape { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 60px; margin-bottom: 60px; }
-        .coluna-rodape h3 { color: #E67E22; font-size: 18px; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-        .logo-rodape { font-family: 'Comfortaa', cursive; font-weight: 700; font-size: 24px; margin-bottom: 20px; display: block; }
-        .texto-sobre-rodape { color: #9CA3AF; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
-        .links-rodape { list-style: none; }
-        .links-rodape li { margin-bottom: 15px; }
-        .links-rodape a { color: #D1D5DB; text-decoration: none; transition: color 0.3s ease; font-size: 15px; }
-        .links-rodape a:hover { color: #E67E22; padding-left: 5px; }
-        .info-contato { display: flex; flex-direction: column; gap: 15px; }
-        .item-contato { display: flex; align-items: flex-start; gap: 12px; color: #D1D5DB; font-size: 15px; }
-        .item-contato i { color: #E67E22; font-size: 20px; margin-top: 3px; }
-        .base-rodape { 
-            border-top: 1px solid rgba(255, 255, 255, 0.1); 
-            padding-top: 30px; 
-            display: flex; 
-            
-            /* 🔥 A MÁGICA AQUI: Trocamos 'column' por 'row' para ficar na mesma linha! */
-            flex-direction: row; 
-            
-            justify-content: center; /* Continua tudo centralizado no meio */
-            align-items: center; 
-            color: #ffffff; 
-            
-            /* 🔥 Dei um respiro de 30px pra separar a data do seu nome e não ficar grudado */
-            gap: 30px; 
-            font-size: 14px; 
-        }
-        .redes-sociais { display: flex; gap: 20px; }
-        .redes-sociais a { color: #ffffff; font-size: 24px; transition: transform 0.3s ease, color 0.3s ease; }
-        .redes-sociais a:hover { color: #E67E22; transform: translateY(-5px); }
-
-        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50px; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1000; transition: all 0.3s ease; text-decoration: none; }
-        .whatsapp-fixo:hover { transform: scale(1.1) rotate(15deg); background-color: #128c7e; }
-        @keyframes balancar { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-        .animar-zap { animation: balancar 0.5s ease infinite; }
-
-           /* =========================================
-           ÍCONE DO MENU MOBILE (Escondido no PC)
-           ========================================= */
-        .icone-menu-mobile { 
-            display: none; 
-            font-size: 38px; 
-            color: #1F2937; 
-            cursor: pointer; 
-            transition: color 0.3s ease; 
-        }
-        .icone-menu-mobile:hover { color: #E67E22; }
-
-        /* =========================================
-           6. RESPONSIVIDADE BLINDADA (CELULAR)
-           ========================================= */
-        @media (max-width: 768px) {
-            body, html { overflow-x: hidden; }
-
-            /* 🔥 1. CABEÇALHO E MENU HAMBÚRGUER */
-            .cabecalho-principal { 
-                flex-direction: row !important; /* Logo e ícone lado a lado */
-                justify-content: space-between !important; 
-                align-items: center !important;
-                padding: 15px 5%; 
-            }
-            
-            /* Esconde o botão do PC e mostra o ícone de Barrinhas */
-            .cabecalho-principal .btn-primario { display: none !important; } 
-            .icone-menu-mobile { display: block !important; } 
-
-            /* Ajustes da Logo para não espremer */
-            .logo-pequena img { height: 60px !important; margin-left: 0 !important; }
-            .logo-pequena span { font-size: 24px !important; }
-
-            /* A Porteira: Menu Dropdown (Escondido por padrão) */
-            .menu-navegacao { 
-                display: flex !important; 
-                flex-direction: column;
-                position: absolute; 
-                top: 100%; /* Fica exatamente abaixo da barra branca */
-                left: 0; 
-                width: 100%; 
-                background-color: #ffffff; 
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                
-                max-height: 0; /* Altura zero = escondido */
-                overflow: hidden; 
-                transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; 
-                z-index: 99;
-            }
-            
-            /* Classe injetada pelo JavaScript para abrir o menu */
-            .menu-navegacao.ativo { 
-                max-height: 400px; /* Expande a altura */
-                padding: 20px 0; 
-            }
-            
-            .menu-navegacao ul { 
-                flex-direction: column; 
-                gap: 20px; 
-                align-items: center; 
-                width: 100%;
-                padding: 0;
-            }
-
-            /* 🔥 2. HERO (Com o Insulfilm Premium) */
-            .hero-section { 
-                height: auto !important; 
-                min-height: 85vh; 
-                padding: 60px 0 !important; 
-                background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('hero/aderiFundo3.png') !important; 
-                background-size: cover !important; 
-                background-position: center !important; 
-                display: flex !important;
-                justify-content: center !important;
-            }
-            
-            .hero-layout { flex-direction: column !important; padding: 0 5% !important; text-align: center !important; }
-            .hero-conteudo { width: 100% !important; align-items: center !important; }
-            .hero-conteudo h1 { font-size: 34px !important; margin-bottom: 20px !important; text-shadow: none !important; } 
-            .hero-conteudo p { font-size: 16px !important; margin-bottom: 40px !important; text-shadow: none !important; } 
-            .slogan-aderi { font-size: 20px !important; margin-top: 40px !important; text-shadow: none !important; } 
-            
-            .hero-botoes { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 15px !important; }
-            .btn-primario, .btn-secundario { width: 100% !important; padding: 15px !important; box-sizing: border-box !important; }
-
-            /* 🔥 3. RESTO DO SITE (Mantido intacto) */
-            .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares, .secao-diferenciais { padding: 50px 5% !important; }
-            .sobre-conteudo h2, .cabecalho-secao-centro h2, .titulos-esq h2, .titulo-pilares { font-size: 28px !important; line-height: 1.3 !important; }
-
-            .container-sobre { flex-direction: column; gap: 40px; }
-            .sobre-imagem-wrapper { width: 100%; }
-            .foto-principal { height: 300px; }
-            .sobre-conteudo { width: 100%; text-align: left; }
-            .sobre-destaques { flex-direction: column; gap: 20px; }
-            .destaque-item { width: 100%; }
-            .badge-experiencia { bottom: -15px; right: 10px; transform: scale(0.8); }
-
-            .grid-pilares { grid-template-columns: 1fr; gap: 30px; }
-            .grid-servicos { grid-template-columns: 1fr; gap: 30px; }
-            .grid-produtos { grid-template-columns: 1fr; gap: 30px; }
-            .cabecalho-produtos { flex-direction: column; align-items: flex-start; gap: 15px; }
-            
-            .grid-ovais { flex-direction: column; align-items: center; gap: 30px; }
-            .card-oval { width: 100%; max-width: 320px; height: 400px; }
-
-            .rodape-principal { padding: 50px 5% 30px 5%; }
-            .container-rodape { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .base-rodape { flex-direction: column; text-align: center; gap: 15px; }
-            .redes-sociais { justify-content: center; }
-            .info-contato { align-items: center; }
-        }
-        
-    </style>
 </head>
 <body>
 
     <header class="cabecalho-principal">
-        
-        <div class="logo-pequena" style="display: flex; align-items: center; gap: 15px;">
-            
-            <img src="logoAderi/logo-aderi-4k.png" alt="Ícone Aderi" style="height: 100px; width: auto; margin-left: -20px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));">
-            
+        <div class="logo-pequena">
+            <img src="logoAderi/logo-aderi-4k.png" alt="Ícone Aderi">
         </div>
         
-        <div style="display: flex; align-items: center; gap: 40px;">
+        <div class="menu-wrapper">
             <nav class="menu-navegacao">
                 <ul>
                     <li><a href="#sobre">Sobre</a></li>
@@ -321,28 +33,63 @@
                     <li><a href="#diferenciais">Diferenciais</a></li>
                 </ul>
             </nav>
+            <a href="https://aderi-app.vercel.app/login" class="btn-primario" target="_blank">Área do colaborador</a>
             <a href="#rodape" class="btn-primario">Fale Conosco</a>
         </div>
         <i class="ph ph-list icone-menu-mobile" id="btn-menu"></i>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-layout">
-            <div class="hero-conteudo">
-                
-                <h1>Especialistas em <br> <span class="destaque-laranja">soluções</span> para o agronegócio</h1>
-                
-                <p>Elevando a produtividade da sua lavoura com tecnologia de ponta, consultoria especializada e os melhores produtos do mercado agrícola.</p>
-                
-                <div class="hero-botoes">
-                    <a href="#servicos" class="btn-primario">Conheça nossos serviços &gt;</a>
-                    <a href="#sobre" class="btn-secundario">Nossa História</a>
-                </div>
-                
-                <div class="slogan-aderi">Venha <span class="destaque-laranja">aderir</span> essa forma de fazer negócio.</div>
-            </div>
+   <section class="hero-section swiper myHeroSwiper">
+        <div class="swiper-wrapper">
             
+            <div class="swiper-slide hero-slide-1">
+                <div class="hero-layout">
+                    <div class="hero-conteudo">
+                        <h1>Especialistas em <br> <span class="destaque-laranja">soluções</span> para o agronegócio</h1>
+                        <p>Elevando a produtividade da sua lavoura com tecnologia de ponta, consultoria especializada e os melhores produtos do mercado agrícola.</p>
+                        
+                        <div class="hero-botoes">
+                            <a href="#servicos" class="btn-primario">Conheça nossos serviços &gt;</a>
+                            <a href="#sobre" class="btn-secundario">Nossa História</a>
+                        </div>
+                        
+                        <div class="slogan-aderi">Venha <span class="destaque-laranja">aderir</span> essa forma de fazer negócio.</div>
+                    </div>
+                </div>
             </div>
+
+            <div class="swiper-slide hero-slide-2">
+                <div class="painel-agro-wrapper">
+                    <h2>Mercado e <span class="destaque-laranja">Clima</span> em Tempo Real</h2>
+                    <p>Informação precisa para a sua tomada de decisão no campo.</p>
+                    
+                    <div class="cards-agro">
+                        <div class="card-agro">
+                            <i class="ph ph-currency-dollar"></i>
+                            <span class="titulo-card">Cotação Dólar</span>
+                            <strong id="card-dolar">Carregando...</strong>
+                        </div>
+                        
+                        <div class="card-agro">
+                            <i class="ph ph-cloud-sun"></i>
+                            <span class="titulo-card">Clima em Piumhi</span>
+                            <strong id="card-clima">Carregando...</strong>
+                        </div>
+
+                        <div class="card-agro">
+                            <i class="ph ph-plant"></i>
+                            <span class="titulo-card">Soja (Saca)</span>
+                            <strong id="card-soja">Em breve...</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </section>
 
     <section id="sobre" class="secao-sobre">
@@ -360,7 +107,7 @@
             <div class="sobre-conteudo">
                 <span class="subtitulo-secao">SOBRE A ADERI AGRO</span>
                 <h2>Tradição de família aliada à inovação no campo</h2>
-                <p>A Aderi Agro nasceu do suor e da dedicação de uma família apaixonada pela terra. Com mais de duas décadas de experiência no agronegócio, construímos uma base sólida de confiança e parceria com produtores rurais de toda a região.</p>
+                <p>A Aderi Agro nasceu do suor e da dedicação de uma família apaixonada pela terra. Com mais de uma década de experiência no agronegócio, construímos uma base sólida de confiança e parceria com produtores rurais de toda a região.</p>
                 <p>Nosso compromisso vai além de fornecer insumos. Entregamos soluções completas que integram o conhecimento prático de gerações às mais modernas tecnologias agrícolas, garantindo sustentabilidade e máxima rentabilidade para a sua lavoura.</p>
                 <div class="sobre-destaques">
                     <div class="destaque-item">
@@ -556,69 +303,22 @@
         </div>
     </footer>
 
+    <div id="painel-dolar" style="position: fixed; bottom: 100px; right: 30px; background-color: #1F2937; color: #E67E22; padding: 10px 20px; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;">
+        Dólar: Carregando...
+    </div>
+
     <a href="https://wa.me/5537999320009?text=Olá! Gostaria de saber mais sobre as soluções da Aderi Agro." 
        class="whatsapp-fixo" id="btn-zap" target="_blank">
         <i class="ph ph-whatsapp-logo"></i>
     </a>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <script src="assets/js/main.js"></script>
 
-<script>
-    const sr = ScrollReveal({ origin: 'top', distance: '50px', duration: 2000, delay: 200, reset: false });
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-    sr.reveal('.hero-conteudo', { origin: 'left' }); 
-    sr.reveal('.card-pilar', { interval: 200 }); 
-    sr.reveal('.sobre-imagem-wrapper', { origin: 'bottom' }); 
-    sr.reveal('.sobre-conteudo', { origin: 'bottom', delay: 400 }); 
-    sr.reveal('.card-oval', { interval: 200 }); 
-
-    setTimeout(() => {
-        const btnZap = document.getElementById('btn-zap');
-        btnZap.classList.add('animar-zap');
-        setTimeout(() => { btnZap.classList.remove('animar-zap'); }, 2000);
-    }, 5000);
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, 
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-</script>
-
-<script>
-    // 1. O JS localiza o Botão e o Menu (Igual o controle remoto achando o motor)
-    const btnMenu = document.getElementById('btn-menu');
-    const menuNav = document.querySelector('.menu-navegacao');
-
-    // 2. Fica "escutando" o clique no botão
-    btnMenu.addEventListener('click', () => {
-        // Quando clica, ele liga/desliga a classe "ativo" que criamos no CSS
-        menuNav.classList.toggle('ativo');
-        
-        // Bônus UX: Troca o ícone de barrinha (ph-list) para um 'X' (ph-x) quando abre
-        if(menuNav.classList.contains('ativo')) {
-            btnMenu.classList.replace('ph-list', 'ph-x');
-        } else {
-            btnMenu.classList.replace('ph-x', 'ph-list');
-        }
-    });
-
-    // 3. Inteligência Comercial: Fecha o menu sozinho quando o cliente clica em um link
-    document.querySelectorAll('.menu-navegacao a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuNav.classList.remove('ativo');
-            btnMenu.classList.replace('ph-x', 'ph-list');
-        });
-    });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> <script src="assets/js/main.js"></script>
 
 </body>
 </html>
