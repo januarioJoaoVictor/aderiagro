@@ -94,20 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-    // CARROSSEL HERO (Swiper.js)
-    // ==========================================
-    const swiper = new Swiper(".myHeroSwiper", {
-        loop: true, // Fica girando infinito
-        autoplay: {
-            delay: 6000, // Gira sozinho a cada 6 segundos
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+// CARROSSEL HERO (Swiper.js)
+// ==========================================
+const swiper = new Swiper(".myHeroSwiper", {
+    loop: true, // Fica girando infinito
+    autoplay: {
+        delay: 6000, // Gira sozinho a cada 6 segundos
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});

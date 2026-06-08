@@ -91,8 +91,7 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background-color
         .titulo-card { font-size: 14px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1px; }
         .card-agro strong { font-size: 32px; font-weight: 800; color: #ffffff; }
 
-        /* Estilizando os botões do Swiper com as cores da Aderi */
-        .swiper-button-next, .swiper-button-prev { color: #E67E22 !important; }
+        /* Estilizando a paginação do Swiper com as cores da Aderi */
         .swiper-pagination-bullet { background-color: #ffffff !important; opacity: 0.5; }
         .swiper-pagination-bullet-active { background-color: #E67E22 !important; opacity: 1; }
 
@@ -219,8 +218,19 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background-color
     .menu-navegacao.ativo { max-height: 400px; padding: 20px 0; }
     .menu-navegacao ul { flex-direction: column; gap: 20px; align-items: center; width: 100%; padding: 0; }
 
-    /* Hero Responsivo */
-    .hero-section { height: auto !important; min-height: 85vh; padding: 60px 0 !important; background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('../../hero/aderiFundo3.png') !important; background-size: cover !important; background-position: center !important; display: flex !important; justify-content: center !important; }
+    /* ===== Carrossel / Hero Mobile (corrige imagem e altura quebrada) ===== */
+    .hero-section, .myHeroSwiper { height: auto !important; min-height: 85vh; overflow: hidden !important; }
+    .myHeroSwiper .swiper-wrapper { height: auto !important; }
+    .swiper-slide.hero-slide-1, .swiper-slide.hero-slide-2 { height: auto !important; min-height: 85vh; padding: 70px 0 !important; }
+
+    /* Slide 1: imagem cobrindo certinho + overlay escuro para o texto branco ficar legível */
+    .hero-slide-1 {
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.85)), url('../../hero/aderiFundo3.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        justify-content: center !important;
+    }
+
     .hero-layout { flex-direction: column !important; padding: 0 5% !important; text-align: center !important; }
     .hero-conteudo { width: 100% !important; align-items: center !important; }
     .hero-conteudo h1 { font-size: 34px !important; margin-bottom: 20px !important; text-shadow: none !important; } 
@@ -228,6 +238,14 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background-color
     .slogan-aderi { font-size: 20px !important; margin-top: 40px !important; text-shadow: none !important; } 
     .hero-botoes { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 15px !important; }
     .btn-primario, .btn-secundario { width: 100% !important; padding: 15px !important; box-sizing: border-box !important; }
+
+    /* Slide 2: Painel Mercado & Clima empilhado e proporcional */
+    .painel-agro-wrapper { padding: 0 5% !important; text-align: center; }
+    .painel-agro-wrapper h2 { font-size: 30px !important; }
+    .painel-agro-wrapper p { font-size: 16px !important; margin-bottom: 30px !important; }
+    .cards-agro { flex-direction: column; gap: 20px; }
+    .card-agro { min-width: 0 !important; width: 100%; align-items: center; text-align: center; }
+    .card-agro strong { font-size: 26px; }
 
     /* Ajustes Gerais de Seção */
     .secao-sobre, .secao-servicos, .secao-produtos, .secao-pilares, .secao-diferenciais { padding: 50px 5% !important; }
